@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_employees
-    description: Cleaned employee records unioned from employees (legacy) and new_hires (extended). Email lowercased, null commission defaulted to 0. Legacy rows default employment_type to full_time and is_remote to false.
+    description: Cleaned employee records. Email lowercased, null commission defaulted to 0.
     columns:
       - name: employee_id
         description: Primary key.

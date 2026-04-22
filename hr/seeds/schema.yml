@@ -2,55 +2,7 @@ version: 2
 
 seeds:
   - name: employees
-    description: Raw employee records from the classic HR schema.
-    columns:
-      - name: employee_id
-        data_type: integer
-      - name: first_name
-        data_type: varchar
-      - name: last_name
-        data_type: varchar
-      - name: email
-        data_type: varchar
-      - name: phone_number
-        data_type: varchar
-      - name: hire_date
-        data_type: date
-      - name: job_id
-        data_type: varchar
-      - name: salary
-        data_type: numeric
-      - name: commission_pct
-        data_type: numeric
-      - name: manager_id
-        data_type: integer
-      - name: department_id
-        data_type: integer
-
-  - name: departments
-    description: Department reference data.
-    columns:
-      - name: department_id
-        data_type: integer
-      - name: department_name
-        data_type: varchar
-      - name: location_id
-        data_type: integer
-
-  - name: jobs
-    description: Job titles with salary bands.
-    columns:
-      - name: job_id
-        data_type: varchar
-      - name: job_title
-        data_type: varchar
-      - name: min_salary
-        data_type: numeric
-      - name: max_salary
-        data_type: numeric
-
-  - name: new_hires
-    description: New employees added after the initial HR data load. Extended schema adds employment_type and is_remote.
+    description: Raw employee records — single source of truth for all employees.
     columns:
       - name: employee_id
         data_type: integer
@@ -78,6 +30,28 @@ seeds:
         data_type: varchar
       - name: is_remote
         data_type: boolean
+
+  - name: departments
+    description: Department reference data.
+    columns:
+      - name: department_id
+        data_type: integer
+      - name: department_name
+        data_type: varchar
+      - name: location_id
+        data_type: integer
+
+  - name: jobs
+    description: Job titles with salary bands.
+    columns:
+      - name: job_id
+        data_type: varchar
+      - name: job_title
+        data_type: varchar
+      - name: min_salary
+        data_type: numeric
+      - name: max_salary
+        data_type: numeric
 
   - name: locations
     description: Office locations.

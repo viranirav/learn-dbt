@@ -1,43 +1,5 @@
-with legacy as (
-    select
-        employee_id,
-        first_name,
-        last_name,
-        email,
-        phone_number,
-        hire_date,
-        job_id,
-        salary,
-        commission_pct,
-        manager_id,
-        department_id,
-        'full_time' as employment_type,
-        false       as is_remote
-    from {{ ref('employees') }}
-),
-
-new_hires as (
-    select
-        employee_id,
-        first_name,
-        last_name,
-        email,
-        phone_number,
-        hire_date,
-        job_id,
-        salary,
-        commission_pct,
-        manager_id,
-        department_id,
-        employment_type,
-        is_remote
-    from {{ ref('new_hires') }}
-),
-
-combined as (
-    select * from legacy
-    union all
-    select * from new_hires
+with source as (
+    select * from {{ ref('employees') }}
 )
 
 select
@@ -55,4 +17,4 @@ select
     department_id,
     employment_type,
     is_remote
-from combined
+from source
