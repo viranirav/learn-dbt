@@ -1,0 +1,28 @@
+department_id,department_name,location_id
+10,Administration,1
+20,Marketing,6
+30,Purchasing,7
+40,Human Resources,12
+50,Shipping,8
+60,IT,6
+70,Public Relations,11
+80,Sales,8
+90,Executive,5
+100,Finance,6
+110,Accounting,6
+120,Treasury,6
+130,Corporate Tax,6
+140,Control And Credit,6
+150,Shareholder Services,6
+160,Benefits,6
+170,Manufacturing,6
+180,Construction,6
+190,Contracting,6
+200,Operations,6
+210,IT Support,6
+220,NOC,6
+230,IT Helpdesk,6
+240,Government Sales,6
+250,Retail Sales,6
+260,Recruiting,6
+270,Payroll,6

@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: stg_employees
+    description: Cleaned employee records unioned from employees (legacy) and new_hires (extended). Email lowercased, null commission defaulted to 0. Legacy rows default employment_type to full_time and is_remote to false.
+    columns:
+      - name: employee_id
+        description: Primary key.
+        data_tests:
+          - unique
+          - not_null
+      - name: full_name
+        description: Concatenated first and last name.
+      - name: job_id
+        description: Foreign key to stg_jobs.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_jobs')
+                field: job_id
+      - name: department_id
+        description: Foreign key to stg_departments.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_departments')
+                field: department_id
+      - name: salary
+        description: Monthly salary in USD.
+        data_tests:
+          - not_null
+      - name: employment_type
+        description: "full_time, part_time, or contract. Legacy employees default to full_time."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['full_time', 'part_time', 'contract']
+      - name: is_remote
+        description: Whether the employee works remotely. Legacy employees default to false.
+
+  - name: stg_departments
+    description: Department reference — cleaned pass-through from seed.
+    columns:
+      - name: department_id
+        data_tests:
+          - unique
+          - not_null
+      - name: department_name
+        data_tests:
+          - not_null
+
+  - name: stg_jobs
+    description: Job titles with salary bands. Adds salary_band_width derived column.
+    columns:
+      - name: job_id
+        data_tests:
+          - unique
+          - not_null
+      - name: salary_band_width
+        description: max_salary minus min_salary.
+
+  - name: stg_locations
+    description: Office location reference data.
+    columns:
+      - name: location_id
+        data_tests:
+          - unique
+          - not_null

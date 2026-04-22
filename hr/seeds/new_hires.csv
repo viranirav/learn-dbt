@@ -1,0 +1,7 @@
+employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,commission_pct,manager_id,department_id,employment_type,is_remote
+207,Raj,Patel,RPATEL,650.555.0101,2024-01-15,IT_PROG,8500,,103,60,full_time,true
+208,Sofia,Martinez,SMARTINEZ,650.555.0102,2024-02-01,SA_REP,7200,0.15,145,80,full_time,false
+209,Liam,Chen,LCHEN,650.555.0103,2024-03-10,FI_ACCOUNT,7000,,108,100,contract,true
+210,Aisha,Okonkwo,AOKONKWO,650.555.0104,2024-04-22,HR_REP,5800,,101,40,part_time,true
+211,Marcus,Webb,MWEBB,650.555.0105,2024-05-06,IT_PROG,7800,,103,60,full_time,false
+212,Yuki,Tanaka,YTANAKA,650.555.0106,2024-06-17,MK_REP,5500,,201,20,full_time,true

@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: dept_headcount
+    description: Per-department headcount, avg/min/max salary, and total payroll. Includes city and country via locations join.
+    columns:
+      - name: department_id
+        data_tests:
+          - unique
+          - not_null
+      - name: headcount
+        description: Number of employees in the department.
+      - name: total_payroll
+        description: Sum of monthly salaries for the department.
+
+  - name: employee_salary_analysis
+    description: Per-employee salary vs job band, annual total comp, and tenure.
+    columns:
+      - name: employee_id
+        data_tests:
+          - unique
+          - not_null
+      - name: salary_band_position
+        description: 0 = at band minimum, 1 = at band maximum.
+      - name: annual_total_comp
+        description: Monthly salary × 12 × (1 + commission_pct).
+
+  - name: org_hierarchy
+    description: Each employee with their direct manager's name and job, plus department.
+    columns:
+      - name: employee_id
+        data_tests:
+          - unique
+          - not_null
